@@ -1,2 +1,5 @@
-# sudoku-solver
-Visualisation of backtracking sudoku solver
+# Sudoku solver
+
+Visualisation of backtracking sudoku solver with pygame.
+
+
