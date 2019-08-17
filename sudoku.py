@@ -15,7 +15,7 @@ class Sudoku:
         self.win_side = win_side
         self.size = (win_side, win_side)
         self.offset = self.win_side/(len(self.board)-1)
-        self.font = pygame.font.Font(pygame.font.get_default_font(), Sudoku.SIZE)
+        self.font = pygame.font.Font(pygame.font.get_default_font(), self.SIZE)
         self.run = True
 
     def on_init(self):
@@ -32,11 +32,11 @@ class Sudoku:
         """
         Draw grid
         """
-        self.win.fill(Sudoku.WHITE)
+        self.win.fill(self.WHITE)
 
         for i in range(1, len(self.board)):
-            pygame.draw.line(self.win, Sudoku.BLACK, (self.offset*i, 0), (self.offset*i, self.win_side), 2)
-            pygame.draw.line(self.win, Sudoku.BLACK, (0, self.offset*i), (self.win_side, self.offset*i), 2)
+            pygame.draw.line(self.win, self.BLACK, (self.offset*i, 0), (self.offset*i, self.win_side), 2)
+            pygame.draw.line(self.win, self.BLACK, (0, self.offset*i), (self.win_side, self.offset*i), 2)
 
     def draw_number(self, num, x, y):
         """
@@ -44,8 +44,8 @@ class Sudoku:
         """
 
         num = str(num)
-        text = self.font.render(num, True, Sudoku.BLACK)
-        pygame.draw.rect(self.win, Sudoku.WHITE, pygame.Rect(x-text.get_width()/2, y-text.get_height()/2, 54, 54))
+        text = self.font.render(num, True, self.BLACK)
+        pygame.draw.rect(self.win, self.WHITE, pygame.Rect(x-text.get_width()/2, y-text.get_height()/2, 54, 54))
         if not num == '0':
             self.win.blit(text, (x-text.get_width()/2, y-text.get_height()/2))
 
