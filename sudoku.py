@@ -44,10 +44,10 @@ class Sudoku:
         """
 
         num = str(num)
-        number = self.font.render(num, True, Sudoku.BLACK)
-        pygame.draw.rect(self.win, Sudoku.WHITE, pygame.Rect(x, y, 54, 54))
+        text = self.font.render(num, True, Sudoku.BLACK)
+        pygame.draw.rect(self.win, Sudoku.WHITE, pygame.Rect(x-text.get_width()/2, y-text.get_height()/2, 54, 54))
         if not num == '0':
-            self.win.blit(number, (x, y))
+            self.win.blit(text, (x-text.get_width()/2, y-text.get_height()/2))
 
     def draw_numbers(self):
         """
@@ -68,8 +68,8 @@ class Sudoku:
         return variables
         """
 
-        x = self.offset * col + self.offset / 2 - Sudoku.SIZE / 4
-        y = self.offset * row + self.offset / 2 - Sudoku.SIZE / 2
+        x = self.offset * col + self.offset / 2
+        y = self.offset * row + self.offset / 2
         return x, y
 
     def solve_sudoku(self):
